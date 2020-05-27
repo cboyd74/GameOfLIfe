@@ -1,12 +1,12 @@
 # GameOfLife
-After finishing the Spring 2020 semester, I was looking for an interesting project to begin my summer break, and in the process I stumbled upon a “game” invented by John Conway called the Game of Life. I read that this is considered a 0-player game in which each cell is either dead or alive, 0 or 1, true or false, and the next state of each cell is determined by the applying a specific set of rules to the states of its neighboring cells. The rules that dictate future generations are as follows: 
-	-For live Cells:
-		-If Cell has less than two live neighbors, it dies from isolation.
-		-If Cell has greater than 3 neighbors, it dies from overpopulation.
-		-Otherwise, the Cell lives!
-	-For dead Cells:
-		-If Cell has exactly 3 live neighbors, it becomes alive.
-		-Otherwise, the Cell remains dead.
+After finishing the Spring 2020 semester, I was looking for an interesting project to begin my summer break, and in the process I stumbled upon a “game” invented by John Conway called the Game of Life. I read that this is considered a 0-player game in which each cell is either dead or alive, 0 or 1, true or false, and the next state of each cell is determined by the applying a specific set of rules to the states of its neighboring cells. The rules that dictate future generations are as follows.
+	For live Cells:
+		If Cell has less than two live neighbors, it dies from isolation.
+		If Cell has greater than 3 neighbors, it dies from overpopulation.
+		Otherwise, the Cell lives!
+	For dead Cells:
+		If Cell has exactly 3 live neighbors, it becomes alive.
+		Otherwise, the Cell remains dead.
 I have three different classes that make up my Game of Life project: Cell.java, Game.java, and Main. java. First of all, the Cell class represents each individual cell that exists inside of the main game board. It has a boolean “alive” field that represents whether or not a cell is dead (false) or alive (true), and a int “age” field that keeps track of how many continuous generations in which this Cell has been alive. The Cell class has methods that allows the Game class to access and mutate these fields. 
 	Second, the Game class represents an instance of a Game of Life. There are two 2-D ArrayList fields that are used in creating each new generation. I alternate between the two for the current board, saving memory as opposed to creating a new 2-D ArrayList for each new generation. Also, there is an int field that keeps track of the current generation number. The Game class has methods init, which fills the 2-D ArrayLists with new Cells, getBoard, an access method for the current board field, nextGen, which creates a new generation by applying the rules to the current board state, and lastly countLiveNeighbors, a method that counts the live neighbors of a cell at given indices.
 Last, the Main class controls the GUI, using JavaFX, and performs the commands given by the user. The animation is drawn on a Canvas object using a Timeline and the user can issue commands by clicking on a variety of buttons in the toolbar on the bottom of the screen. In the toolbar, there are buttons that control whether the user wants to create new cells by clicking on the cells or dragging to draw in draw mode, or kill cells by clicking or dragging to erase in erase mode. There are buttons that control the simulation: a step button that creates one new generation on each click, a start button that starts the timeline and plays the simulation until the user clicks a second time. Also, there are buttons that are used for adjusting the speed of the continuous simulation: 2x, and 3x. Last, there is an exit button that gives the user means to exit the program when they are finished.
