@@ -109,6 +109,10 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	Game life;
 	Timeline line;
 
+	/**
+	 * Start method for JavaFX. Initializes all of the controls and adds them to the
+	 * correct places, sets up the game, creates event handlers.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// Calculate numCells immediately
@@ -267,6 +271,10 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 		exit.setOnAction(this);
 	}
 
+	/**
+	 * Draws the current board onto the Canvas. Chooses color of live cells base off
+	 * of their age, draws grid lines and border around the Canvas.
+	 */
 	private void drawBoard() {
 		gen.setText("Generation: " + life.getGen()); // Updates generation text
 		conny.clearRect(0, 0, canvas.getWidth(), canvas.getHeight()); // Clears the canvas
@@ -319,6 +327,9 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
 	}
 
+	/**
+	 * Event handler for all of the buttons
+	 */
 	@Override
 	public void handle(ActionEvent arg0) {
 		if (arg0.getSource() == next) {
@@ -439,6 +450,11 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
 	}
 
+	/**
+	 * Main method, launches the JavaFX application.
+	 * 
+	 * @param args
+	 */
 	public static void main(String args[]) {
 		launch(args);
 	}

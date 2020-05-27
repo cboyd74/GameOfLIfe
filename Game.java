@@ -33,6 +33,11 @@ public class Game {
 		currBoard = board;
 	}
 
+	/**
+	 * Returns the current board
+	 * 
+	 * @return
+	 */
 	public ArrayList<ArrayList<Cell>> getBoard() {
 		return this.currBoard;
 	}
@@ -80,6 +85,13 @@ public class Game {
 		this.currBoard = newGen;
 	}
 
+	/**
+	 * Counts all of the live neighbors of the cell at x and y in Game.getBoard().
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	private int countNeighbors(int x, int y) {
 		int count = 0;
 
